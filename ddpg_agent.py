@@ -4,13 +4,12 @@ import copy
 from collections import namedtuple, deque
 
 from model import Actor, Critic
-from replay_memory import ReplayMemory
 
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-BUFFER_SIZE = 20000 #int(1e6)  # replay buffer size
+BUFFER_SIZE = int(1e6)  # replay buffer size
 BATCH_SIZE = 128        # minibatch size
 GAMMA = 0.99            # discount factor
 TAU = 1e-3              # for soft update of target parameters
@@ -52,9 +51,7 @@ class Agent():
         self.noise = OUNoise(action_size, random_seed)
 
         # Replay memory
-        #self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, random_seed)
-        self.memory = ReplayMemory(action_size, BUFFER_SIZE, BATCH_SIZE)
-        
+        self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, random_seed)
     
     def step(self, state, action, reward, next_state, done):
         """Save experience in replay memory, and
@@ -169,7 +166,6 @@ class OUNoise:
         self.state = x + dx
         return self.state
 
-##### No longer used #####
 class ReplayBuffer:
     """Fixed-size buffer to store experience tuples."""
 
