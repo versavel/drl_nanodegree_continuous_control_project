@@ -1,6 +1,6 @@
 numpy==1.13.3
 prompt-toolkit==1.0.15
-tensorflow==1.7.1
+tensorflow==1.12.2
 Pillow>=4.2.1
 matplotlib
 jupyter
