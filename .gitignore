@@ -1,7 +1,8 @@
-checkpoint*
-.gitignore
-Reacher.app
 __pycache__
 .DS_Store
 .ipynb_checkpoints/
 unity-environment.log
+error.log
+output.log
+Reacher*
+
