@@ -65,7 +65,7 @@ class DDPG_Agent():
         self.critic_local = Critic(state_size, action_size, hidden_size=HIDDEN_SIZE_CRITIC).to(device)
         self.critic_target = Critic(state_size, action_size, hidden_size=HIDDEN_SIZE_CRITIC).to(device)
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC)
-
+        
         # Noise process
         self.noise = OUNoise(action_size, seed)
 
@@ -84,7 +84,7 @@ class DDPG_Agent():
             self.memory.add(states[i], actions[i], rewards[i], next_states[i], dones[i])
 
         # Learn if enough samples are available in the replay buffer
-        if (self.steps % 20 == 0) and (len(self.memory) > BATCH_SIZE):
+        if (self.steps % 400 == 0) and (len(self.memory) > BATCH_SIZE):
             for _ in range(10):
                 experiences = self.memory.sample()
                 self.learn(experiences, GAMMA)
