@@ -4,7 +4,7 @@
 [image2]: ddpg_agent_learning_curve_BatchSize4096.jpg "Learning Curve for BatchSize 4096"
 [image3]: ddpg_agent_learning_curve_SingleAgent.jpg "Learning Curve for training with Single Agent"
 
-# Project 1: Navigation
+# Project 2: Continuous Control
 
 # Report
 
@@ -70,7 +70,7 @@ I also experimented with using the Single Agent version of the environment. Usin
 
 ![Learning Curve][image3]
 
-I also ran experiments using GPU in the Udacity Workspace and on Amazon AWS. The speed-up gains where not significant or negative. This may be because the neural network model is not very large, or because my code is not tuned to run efficiently on GPU.
+I also ran experiments using GPU in the Udacity Workspace and on Amazon AWS. The speed-up gains where not significant or negative. This may be because the neural networks are not very large, or because my code is not tuned to run efficiently on GPU.
 
 ## Further Improvements
 
