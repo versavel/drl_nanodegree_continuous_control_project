@@ -1,6 +1,7 @@
 [//]: # (Image References)
 
 [image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
+[image2]: https://user-images.githubusercontent.com/10624937/42386929-76f671f0-8106-11e8-9376-f17da2ae852e.png "Kernel"
 
 
 # Project 2: Continuous Control
@@ -37,6 +38,39 @@ The barrier for solving the second version of the environment is slightly differ
 - This yields an **average score** for each episode (where the average is over all 20 agents).
 
 The environment is considered solved, when the average over 100 consecutive episodes of those average scores is at least +30. 
+
+## Dependencies
+I suggest you create a virtual environment, clone the [udacity/deep-reinforcement-learning](https://github.com/udacity/deep-reinforcement-learning) repository, and then use `pip install .` to install the required packages.
+
+1. Create (and activate) a new environment with Python 3.6.
+
+	- __Linux__ or __Mac__: 
+	```bash
+	conda create --name drlnd python=3.6
+	source activate drlnd
+	```
+	- __Windows__: 
+	```bash
+	conda create --name drlnd python=3.6 
+	activate drlnd
+	```
+	
+3. Clone the [udacity/deep-reinforcement-learning](https://github.com/udacity/deep-reinforcement-learning) repository, and navigate to the `python/` folder.  Then, install several dependencies.
+
+```bash
+git clone https://github.com/udacity/deep-reinforcement-learning.git
+cd deep-reinforcement-learning/python
+pip install .
+```
+
+4. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `drlnd` environment.  
+```bash
+python -m ipykernel install --user --name drlnd --display-name "drlnd"
+```
+
+5. Before running code in a notebook, change the kernel to match the `drlnd` environment by using the drop-down `Kernel` menu. 
+
+![Kernel][image2]
 
 ## Getting Started
 
