@@ -7,12 +7,12 @@
 
 ## Introduction
 
-This application will train an agent to work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment. It was developed as the second project for Udacity's Deep Reinforcement Learning nanodegree. See my [report](https://github.com/versavel/drl_nanodegree_continuous_control/blob/master/REPORT.md) for a description of my implementation.
+This application will train an agent to work with the Unity [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment. It was developed as the second project for Udacity's [Deep Reinforcement Learning nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893). See my [report](https://github.com/versavel/drl_nanodegree_continuous_control_project/blob/master/REPORT.md) for a description of my implementation.
 
 
 ![Trained Agent][image1]
 
-In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
+In the Unity [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
@@ -62,5 +62,5 @@ The environment is considered solved, when the average over 100 consecutive epis
 
 ## Instructions
 
-* To train the agent: execute the [Train_Agent.ipynb](https://github.com/versavel/drl_nanodegree_navigation/blob/master/Train_Agent.ipynb) notebook
-* To watch the trained agent: execute the [Watch_Agent.ipnb](https://github.com/versavel/drl_nanodegree_navigation/blob/master/Watch_Agent.ipynb) notebook
+* To train the agent: execute the [Train_Agent.ipynb](https://github.com/versavel/drl_nanodegree_continuous_control_project/blob/master/Train_Agent.ipynb) notebook
+* To watch the trained agent: execute the [Watch_Agent.ipnb](https://github.com/versavel/drl_nanodegree_continuous_control_project/blob/master/Watch_Agent.ipynb) notebook

@@ -11,7 +11,7 @@
 ## The Learning Algorithm
 I implemented the Deep Deterministic Policy Gradient ([DDPG](https://arxiv.org/abs/1509.02971)) algorithm to train the agent. DDPG is a model-free, off-policy actor-critic algorithm using deep function approximators  that can learn high-dimensional, continous action spaces.
 
-The pseudo-code for the algotithm is as follows (see [DDPG](https://arxiv.org/abs/1509.02971)):
+The pseudo-code for the algotithm is as follows (taken from [DDPG](https://arxiv.org/abs/1509.02971)) paper:
 
     Randomly initialize critic network Q(s,a|θQ) and actor μ(s|θμ) with weights θQ and θμ
     Initialize target network Q′ and μ′ with weights θQ′ <-- θQ, θμ′ <-- θμ
@@ -47,30 +47,30 @@ My implementation uses to following hyperparameter values:
 
 The Actor and the Critic each have "local" and "target" neural networks.
 
-The Actor networks are a typical neural network consisting each of 3 fully connected layers. There are 33 input nodes (number of states) and 4 output nodes (number of actions). The two hidden layers have 256 and 128 nodes, respectively, and a Leaky ReLU activation function. The output layer has a tanh function so that the output range is [-1, +1}.
+The Actor networks are a typical neural network consisting each of three fully connected layers. There are 33 input nodes (number of states) and four output nodes (number of actions). The two hidden layers have 256 and 128 nodes, respectively, and a Leaky ReLU activation function. The output layer has a tanh function so that the output range is [-1, +1].
 
-The Critic networks are a classic neural network consisting each of 4 fully connected layers. There are 37 input nodes (number of states + number of actions) and 1 output node. The three hidden layers have 256, 128, and 128 nodes, respectively, and a Leaky ReLU activation function.
+The Critic networks are a classic neural network consisting each of four fully connected layers. There are 37 input nodes (number of states + number of actions) and one output node. The three hidden layers have 256, 128, and 128 nodes, respectively, and a Leaky ReLU activation function.
 
 The weights of the target Actor and Critic networks are updated using soft updates.
 
 
 ## The Learning Curve
 
-I ran several experiments with the models, to see the impact of different hyperparameter values. Most experiments showed either slower learning than the final network presented above, or no learning, and were aborted before the target score was reached since my computing resources are limited.
+I ran several experiments with the models, to see the impact of different hyperparameter values. Most experiments showed either slower learning than the final network presented above, or no learning, and were aborted before the target score was reached.
 
-Below is the learning curve for the model presented above. The DDPG algorithm ran for 309 episodes, about 3 hours and 40 minutes on my iMac (CPU only), until the average of 100 consecutive episode scores exceeded 30. This means that the environment was sovled in 209 episodes.
+Below is the learning curve for the model presented above. The DDPG algorithm ran for 309 episodes, taking 3 hours and 40 minutes on my iMac (CPU only), until the average of 100 consecutive episode scores exceeded 30. This means that the environment was sovled in 209 episodes.
 
 ![Learning Curve][image1]
 
-If the batch size was increased to 4096, the environment was solved in 116 episodes, but it took 9 hours and 24 minutes on my iMac. The learning curve for this experiment is shown below.
+When the batch size was increased to 4096, the environment was solved in 116 episodes, much less then in the scenario presented above where the Batch Size was 1024. Yet it took 9 hours and 24 minutes to complete on my iMac. The learning curve for this experiment is shown below.
 
 ![Learning Curve][image2]
 
-I also experimented with using the Single Agent version of the environment. Using the same hyperparameters as presented above, the environment was solved in 3073 episodes and 4 hours and 44 minutes on my MacBookPro. The learning curve for this experiment is shown below.
+I also experimented with using the Single Agent version of the environment. Using the same hyperparameters as presented above, the environment was solved in 3073 episodes and it took 4 hours and 44 minutes on my MacBookPro, which is slightly slower than my iMac. The learning curve for this experiment is shown below.
 
 ![Learning Curve][image3]
 
-I also ran experiments using GPU in the Udacity Workspace and on Amazon AWS p2.xlarge instances. The speed-up gains where not significant or even negative. This may be because the neural network model is not very large, or because my code is not tuned to be run on GPU.
+I also ran experiments using GPU in the Udacity Workspace and on Amazon AWS. The speed-up gains where not significant or negative. This may be because the neural network model is not very large, or because my code is not tuned to run efficiently on GPU.
 
 ## Further Improvements
 
